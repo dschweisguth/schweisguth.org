@@ -1,0 +1,2 @@
+# min	hour	dom	month	dow	command
+18	6,18	*	*	*	/root/lib/suppress_output_on_success certbot renew --no-self-upgrade

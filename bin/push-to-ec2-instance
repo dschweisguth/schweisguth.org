@@ -1,0 +1,9 @@
+#!/opt/local/bin/bash -e
+host=schweisguth.org
+local_files=`dirname $0`/../files
+
+rsync -av --delete $local_files/html/ schweisguth.org:/var/www/html
+
+remote_root_files=/tmp/schweisguth.org-install-root-files
+rsync -av --delete $local_files/root/ $host:$remote_root_files
+ssh $host sudo rsync -rlptv --omit-dir-times $remote_root_files/ /
