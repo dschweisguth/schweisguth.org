@@ -5,6 +5,9 @@ instance type = t2.micro
 storage =  8 GB storage
 security group = "http, https, ssh"
 Assign an Elastic IP address (currently 52.40.204.214)
+In DNS, create
+- an A record for the apex, pointing to the Elastic IP address
+- a CNAME for www, pointing to the apex
 
 Configure HTTP:
 
@@ -58,5 +61,3 @@ Add the results to ssl.conf
 Test SSL at https://www.ssllabs.com/ssltest/ again
 The changes in this section did not improve the score, I suppose because current httpd no longer includes obsolete protocols or ciphers.
 Copy ssl.conf to files/root/etc/httpd/conf.d
-
-CDR has an A record for the apex with the Elastic IP address and a CNAME for www pointing to the apex.
